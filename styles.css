@@ -1,0 +1,141 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('background-image.png'); /* Replace with your background image */
+    background-size: cover;
+    background-position: center;
+    filter: blur(10px);
+    z-index: -1;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    backdrop-filter: blur(10px); /* Apply blur effect */
+}
+
+.header {
+    text-align: center;
+    width: 100%;
+}
+
+.social-icons img {
+    width: 100%;
+    height: auto;
+}
+
+.header h1 {
+    margin-top: 10px;
+    font-size: 24px;
+    color: #333;
+}
+
+.content {
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+.brand-name h2 {
+    margin: 0;
+    font-size: 22px;
+    color: #000;
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.social-links {
+    margin-top: 20px;
+}
+
+.social-button {
+    display: flex;
+    align-items: center;
+    width: 90%; /* Increased width */
+    margin: 15px auto; /* Adjusted margin for spacing */
+    padding: 15px; /* Increased padding */
+    font-size: 20px; /* Increased font size */
+    text-decoration: none;
+    border-radius: 5px;
+    color: black;
+    background-color: white; /* Default background color */
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.social-button img {
+    width: 28px; /* Increased icon size */
+    height: 28px; /* Increased icon size */
+    margin-right: 10px;
+}
+
+.instagram img {
+    background-color: #E1306C;
+    border-radius: 50%;
+}
+
+.whatsapp img {
+    background-color: #25D366;
+    border-radius: 50%;
+}
+
+.facebook img {
+    background-color: #3b5998;
+    border-radius: 50%;
+}
+
+.share-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    margin: 20px auto 0;
+    padding: 10px;
+    font-size: 18px;
+    color: white;
+    background-color: #FF6F61;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.share-button img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.share-button:hover {
+    background-color: #ff5a4d;
+}
+
+.social-button:hover {
+    background-color: #f0f0f0;
+}

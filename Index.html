@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SWAAD KITCHEN</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background"></div>
+    <div class="container">
+        <div class="header">
+            <div class="social-icons">
+                <img src="images/Socail-png.png" alt="Social Icons">
+            </div>
+        </div>
+        <div class="content">
+            <div class="brand-name">
+                <h2>SWAAD KITCHEN</h2>
+            </div>
+            <div class="social-links">
+                <a href="https://www.instagram.com/swaadkitchen._?igsh=MXQ5aTU1MjlxeTFsNg==" class="social-button instagram">
+                    <img src="images/Instagram_icon.png" alt="Instagram"> Instagram
+                </a>
+                <a href="https://wa.me/YOUR_WHATSAPP_NUMBER" class="social-button whatsapp">
+                    <img src="images/WhatsApp_icon.png" alt="WhatsApp"> WhatsApp
+                </a>
+                <a href="https://www.facebook.com/profile.php?id=61562770721932&mibextid=LQQJ4d" class="social-button facebook">
+                    <img src="images/Facebook_Logo_2023.png" alt="Facebook"> Facebook
+                </a>
+            </div>
+            <button class="share-button" id="shareButton">
+                <img src="images/share-icon.png" alt="Share"> SHARE THIS PAGE
+            </button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('shareButton').addEventListener('click', async () => {
+            const pageUrl = window.location.href;
+
+            // Function to check if the device is mobile
+            const isMobileDevice = () => {
+                return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+            };
+
+            try {
+                if (isMobileDevice() && navigator.share) {
+                    // Use the Web Share API to open the share dialog on mobile devices
+                    await navigator.share({
+                        title: 'SWAAD KITCHEN',
+                        text: 'Check out SWAAD KITCHEN!',
+                        url: pageUrl
+                    });
+                    console.log('Page shared successfully');
+                } else {
+                    // Copy the link to the clipboard on non-mobile devices
+                    await navigator.clipboard.writeText(pageUrl);
+                    alert('Page URL copied to clipboard');
+                }
+            } catch (err) {
+                console.error('Error sharing the page:', err);
+            }
+        });
+    </script>
+</body>
+</html>
