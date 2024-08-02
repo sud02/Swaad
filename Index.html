@@ -8,7 +8,7 @@
 </head>
 <body>
     <!-- Preloader -->
-    <div id="preloader">
+    <div id="preloader" data-duration="5000">
         <div class="preloader-content">
             <img src="images/ASTRID.png" alt="Logo" class="logo">
         </div>
@@ -44,17 +44,25 @@
     </div>
 
     <script>
+        const hidePreloader = () => {
+            const preloader = document.getElementById('preloader');
+            const duration = parseInt(preloader.getAttribute('data-duration'), 8);
+            setTimeout(() => {
+                document.body.classList.add('loaded');
+            }, duration);
+        };
+
+        window.addEventListener('load', hidePreloader);
+
         document.getElementById('shareButton').addEventListener('click', async () => {
             const pageUrl = window.location.href;
 
-            // Function to check if the device is mobile
             const isMobileDevice = () => {
                 return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
             };
 
             try {
                 if (isMobileDevice() && navigator.share) {
-                    // Use the Web Share API to open the share dialog on mobile devices
                     await navigator.share({
                         title: 'SWAAD KITCHEN',
                         text: 'Check out SWAAD KITCHEN!',
@@ -62,18 +70,12 @@
                     });
                     console.log('Page shared successfully');
                 } else {
-                    // Copy the link to the clipboard on non-mobile devices
                     await navigator.clipboard.writeText(pageUrl);
                     alert('Page URL copied to clipboard');
                 }
             } catch (err) {
                 console.error('Error sharing the page:', err);
             }
-        });
-
-        // Hide the preloader once the page is fully loaded
-        window.addEventListener('load', () => {
-            document.body.classList.add('loaded');
         });
     </script>
 </body>
